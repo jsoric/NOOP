@@ -18,5 +18,12 @@ public class AUX_CLS {
         users.add(new UserSND("Ime"));
     }
 
+    public static <T extends UserSND> void processList(List<T>lst, T newElement){
+        for(T element : lst){
+            System.out.println(element);
+        }
+
+        lst.add(newElement);
+    }
 
 }
