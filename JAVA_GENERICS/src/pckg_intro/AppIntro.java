@@ -11,7 +11,7 @@ public class AppIntro {
         lst.add(2E11);
         lst.add(new User("Zoki"));
 
-        listElements(lst);
+        listElementsFromList(lst);
         System.out.println(new User("Ime1"));
         System.out.println(new User("Ime2"));
 
@@ -25,8 +25,8 @@ public class AppIntro {
 
     }
 
-    private static void listElementsFromList(ArrayList <User> lst){
-        for(User user: lst){
+    private static <K> void listElementsFromList(ArrayList <K> lst){
+        for(K user: lst){
             System.out.println(user);
         }
     }

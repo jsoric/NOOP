@@ -9,12 +9,12 @@ public class TestApp {
 
         // Creating instances of SimpleClass with BestUser and User types
         SimpleClass<BestUser> bestUserSimpleClass = new SimpleClass<>(users);
-        bestUserSimpleClass.performAllActions();  // Iterating over users to perform actions
+     //   bestUserSimpleClass.performAllActions();  // Iterating over users to perform actions
 
         SimpleClass<NewUser> newUserSimpleClass = new SimpleClass<>();
         SimpleClass<User> userSimpleClass = new SimpleClass<>(user2);  // Fix type mismatch here
 
         System.out.println("---------------------------------------------");
-        userSimpleClass.performAllActions();  // Iterating over users to perform actions
+     //   userSimpleClass.performAllActions();  // Iterating over users to perform actions
     }
 }
