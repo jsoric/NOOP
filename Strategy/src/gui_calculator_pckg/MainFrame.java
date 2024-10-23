@@ -1,6 +1,7 @@
 package gui_calculator_pckg;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class MainFrame extends JFrame {
 
@@ -21,14 +22,22 @@ public class MainFrame extends JFrame {
         activateMainFrame();
 
 
-
-
     }
 
     private void activateMainFrame() {
+        formpanel.setFormPanelListener(new FormPanelListener() { //Anonimna klasa, proučit!!
+            @Override
+            public void formPanelEventOccured(CalculationFormData formRecord) {
+                viewPanel.addTextToViewPanel(formRecord);
+            }
+        });
     }
 
     private void layoutComps() {
+        setLayout(new BorderLayout());
+        add(viewPanel, BorderLayout.CENTER);
+        add(formpanel, BorderLayout.SOUTH);
+
     }
 
     private void initComps() {
@@ -36,6 +45,5 @@ public class MainFrame extends JFrame {
         formpanel = new FormPanel();
 
     }
-
 
 }
