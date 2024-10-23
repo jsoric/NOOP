@@ -1,24 +1,32 @@
 package pckg_calculator_task01;
 
+import java.util.Objects;
+import java.util.Scanner;
+
 public class CalculatorApp {
     public static void main(String[] args) {
 
-        Calculator calculator = new Calculator();
 
-        // Set strategy to Addition and perform calculation
-        calculator.setOperation(new Addition());
-        calculator.calculate(10, 5);
+        Scanner scn = new Scanner(System.in);
 
-        // Set strategy to Subtraction and perform calculation
-        calculator.setOperation(new Subtraction());
-        calculator.calculate(20, 10);
+        while(true){
+            System.out.println("Odaberi radnju: ");
+            MathOperation_Decider mtd = new MathOperation_Decider(scn.nextLine());
+            System.out.println("Unesi y ili n");
+            String choice = scn.nextLine();
 
-        // Set strategy to Multiplication and perform calculation
-        calculator.setOperation(new Multiplication());
-        calculator.calculate(6, 7);
+            if(Objects.equals(choice, "y")){
+            }
 
-        // Set strategy to Division and perform calculation
-        calculator.setOperation(new Division());
-        calculator.calculate(40, 8);
+            else if (Objects.equals(choice, "n")){
+                System.out.println("Izlazak iz kalkulatora");
+                break;
+            }
+        }
+
+
+        }
+
+
     }
-}
+
