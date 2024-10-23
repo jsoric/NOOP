@@ -6,17 +6,19 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
-public class SaveTxtStrategy implements SaveDataStrategy{
+public class SaveTxtStrategy implements SaveDataStrategy<String>{
+
+
     @Override
-    public <E> void saveDataToFile(String filePath, List<E> data) {
+    public void saveDataToFile(String filePath, List<String> data) {
         try(BufferedWriter bw = new BufferedWriter(new FileWriter(new File(filePath)))) {
-            for(E element: data){
-                bw.write((String) element);
+            for(String element: data){
+                bw.write(element);
                 bw.newLine();
             }
+            System.out.println("Data writen as txt in file: "+filePath);
         } catch (IOException e) {
-            e.printStackTrace();
-        };
-
+            throw new RuntimeException(e);
+        } ;
     }
 }
