@@ -1,6 +1,7 @@
 package gui_calculator_pckg;
 
 import javax.swing.*;
+import javax.tools.Tool;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,11 +13,16 @@ public class ToolBar extends JPanel implements ActionListener {
     private JButton loadText;
     private JButton loadObjects;
     private JButton clearAll;
+    private ToolbarListener toolbarListener;
 
     public ToolBar(){
         initComps();
         layoutComps();
         activateToolBar();
+    }
+
+    void setToolbarListener(ToolbarListener toolbarListener){
+        this.toolbarListener = toolbarListener;
     }
 
     private void initComps() {
@@ -54,6 +60,33 @@ public class ToolBar extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
+        if(ae.getSource() == saveAsText){
+            if(toolbarListener != null){
+                toolbarListener.toolbarEventOccured(saveAsText.getActionCommand());
+            }
+            System.out.println("Clicked: " + saveAsText.getActionCommand());
+        }
 
+        if(ae.getSource() == saveObjects){
+            System.out.println("Clicked: " + saveObjects.getActionCommand());
+        }
+
+        if(ae.getSource() == loadText){
+            System.out.println("Clicked: " + loadText.getActionCommand());
+            if(toolbarListener != null){
+                toolbarListener.toolbarEventOccured(loadText.getActionCommand());
+            }
+        }
+
+        if(ae.getSource() == loadObjects){
+            System.out.println("Clicked: " + loadObjects.getActionCommand());
+        }
+
+        if(ae.getSource() == clearAll){
+            if(toolbarListener != null){
+                toolbarListener.toolbarEventOccured(clearAll.getActionCommand());
+            }
+            System.out.println("Clicked: " + clearAll.getActionCommand());
+        }
     }
 }

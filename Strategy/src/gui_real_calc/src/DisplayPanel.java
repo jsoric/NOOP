@@ -1,3 +1,5 @@
+package gui_real_calc.src;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
