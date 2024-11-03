@@ -68,6 +68,9 @@ public class ToolBar extends JPanel implements ActionListener {
         }
 
         if(ae.getSource() == saveObjects){
+            if(toolbarListener != null){
+                toolbarListener.toolbarEventOccured(saveObjects.getActionCommand());
+            }
             System.out.println("Clicked: " + saveObjects.getActionCommand());
         }
 
@@ -75,6 +78,12 @@ public class ToolBar extends JPanel implements ActionListener {
             System.out.println("Clicked: " + loadText.getActionCommand());
             if(toolbarListener != null){
                 toolbarListener.toolbarEventOccured(loadText.getActionCommand());
+            }
+        }
+        if(ae.getSource() == loadObjects){
+            System.out.println("Clicked: " + loadObjects.getActionCommand());
+            if(toolbarListener != null){
+                toolbarListener.toolbarEventOccured(loadObjects.getActionCommand());
             }
         }
 

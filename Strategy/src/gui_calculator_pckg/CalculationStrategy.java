@@ -1,6 +1,8 @@
 package gui_calculator_pckg;
 
-public interface CalculationStrategy {
+import java.io.Serializable;
+
+public interface CalculationStrategy extends Serializable {
 
     double performCalculation(double fst, double snd);
 }

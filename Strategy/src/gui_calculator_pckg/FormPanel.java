@@ -11,11 +11,9 @@ public class FormPanel extends JPanel {
     private JTextField fstNumField;
     private JTextField sndNumField;
     private JTextField resultField;
-
     private JComboBox<CalculationStrategy> operationBox;
     private JButton confirmButton;
     private FormPanelListener formPanelListener;
-
 
     public FormPanel(){
         Dimension dims = getPreferredSize();
@@ -24,7 +22,6 @@ public class FormPanel extends JPanel {
         Border outer = BorderFactory.createEmptyBorder(5,5,5,5);
         Border inner = BorderFactory.createTitledBorder("Calculation panel: ");
         Border border = BorderFactory.createCompoundBorder(outer, inner);
-
         setBorder(border);
 
         initComps();
@@ -130,8 +127,5 @@ public class FormPanel extends JPanel {
         resultField.setEnabled(false);
         fstNumField.requestFocus();
         operationBox.setSelectedIndex(-1);
-
-
-
     }
 }
