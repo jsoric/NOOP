@@ -8,15 +8,14 @@ import java.util.List;
 public class LoadTxtStrategy implements LoadDataStrategy<String> {
 
     @Override
-    public List<String> loadDataFromFile(String filePath) {
+    public List<String> loadDataFromFile() {
         List<String> loadedData = new ArrayList<>();
-
-        // Use JFileChooser to select a file
         JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setCurrentDirectory(new File("C:\\Users\\josip.soric\\IdeaProjects\\Napredno Objektno Programiranje\\NOOP\\Strategy\\DATA"));
         fileChooser.setDialogTitle("Select a File to Load");
         int result = fileChooser.showOpenDialog(null);
 
-        // Check if user selected a file
+        // Check if the user selected a file
         if (result == JFileChooser.APPROVE_OPTION) {
             File selectedFile = fileChooser.getSelectedFile();
             try (BufferedReader br = new BufferedReader(new FileReader(selectedFile))) {

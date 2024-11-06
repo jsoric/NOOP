@@ -7,7 +7,7 @@ public class DivideCalcStrategy implements CalculationStrategy {
             System.out.println("Division with zero is not allowed!!!");
             throw new ArithmeticException("Zero division!");
         } else {
-            return fst / snd;
+            return fst / snd; // Perform division operation
         }
     }
 

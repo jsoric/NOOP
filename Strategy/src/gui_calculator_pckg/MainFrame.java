@@ -3,7 +3,6 @@ package gui_calculator_pckg;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class MainFrame extends JFrame {
@@ -15,7 +14,6 @@ public class MainFrame extends JFrame {
     private final List<CalculationFormData> binData;
 
     public MainFrame(){
-
         super("Simple calculator");
 
         this.txtData = new ArrayList<>();
@@ -30,12 +28,11 @@ public class MainFrame extends JFrame {
         initComps();
         layoutComps();
         activateMainFrame();
-
-
     }
 
+    // Set up listeners for main frame components
     private void activateMainFrame() {
-        formpanel.setFormPanelListener(new FormPanelListener() { //Anonimna klasa, proučit!!
+        formpanel.setFormPanelListener(new FormPanelListener() {
             @Override
             public void formPanelEventOccured(CalculationFormData formRecord) {
                 viewPanel.addTextToViewPanel(formRecord);
@@ -43,29 +40,30 @@ public class MainFrame extends JFrame {
                 binData.add(formRecord);
             }
         });
+
         toolBar.setToolbarListener(new ToolbarListener() {
             @Override
             public void toolbarEventOccured(String buttonActionString) {
                 if(buttonActionString.equals("Save TXT")){
-                    System.out.println("Save works");
                     SaveTxtStrategy saveTxtStrategy = new SaveTxtStrategy();
-                    saveTxtStrategy.saveDataToFile("dataTXT.txt", txtData);
+                    saveTxtStrategy.saveDataToFile(txtData);
                 }
                 if(buttonActionString.equals("Save BIN")){
-                    System.out.println("Save to BIN works");
                     SaveBinStrategy saveBinStrategy = new SaveBinStrategy();
-                    saveBinStrategy.saveDataToFile("dataBIN.bin", binData);
+                    saveBinStrategy.saveDataToFile(binData);
                 }
                 if(buttonActionString.equals("Load TXT")){
-                    System.out.println("Load txt works");
+                    if(txtData.size() != 0){
+                        SaveTxtStrategy saveTxtStrategy = new SaveTxtStrategy();
+                        saveTxtStrategy.saveDataToFile(txtData);
+                    }
                     LoadTxtStrategy loadDataStrategy = new LoadTxtStrategy();
-                    List<String> loaded = loadDataStrategy.loadDataFromFile("dataTXT.txt");
+                    List<String> loaded = loadDataStrategy.loadDataFromFile();
                     viewPanel.addTextToViewPanel(loaded.toString());
                 }
                 if(buttonActionString.equals("Load BIN")){
-                    System.out.println("Load bin works");
                     LoadBinStrategy loadBinStrategy = new LoadBinStrategy();
-                    List<CalculationFormData> loaded = loadBinStrategy.loadDataFromFile("dataBIN.bin");
+                    List<CalculationFormData> loaded = loadBinStrategy.loadDataFromFile();
                     viewPanel.addTextToViewPanel(loaded.toString());
                 }
                 if(buttonActionString.equals("Clear all")){
@@ -74,8 +72,6 @@ public class MainFrame extends JFrame {
                     binData.clear();
                     JOptionPane.showMessageDialog(MainFrame.this, "List is erased!", "Warning msg", JOptionPane.INFORMATION_MESSAGE);
                 }
-
-
             }
         });
     }
@@ -85,14 +81,11 @@ public class MainFrame extends JFrame {
         add(viewPanel, BorderLayout.CENTER);
         add(formpanel, BorderLayout.SOUTH);
         add(toolBar, BorderLayout.NORTH);
-
     }
 
     private void initComps() {
         viewPanel = new ViewPanel();
         formpanel = new FormPanel();
         toolBar = new ToolBar();
-
     }
-
 }

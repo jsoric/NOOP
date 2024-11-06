@@ -1,7 +1,6 @@
 package gui_calculator_pckg;
 
 import javax.swing.*;
-import javax.tools.Tool;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,20 +20,21 @@ public class ToolBar extends JPanel implements ActionListener {
         activateToolBar();
     }
 
+    // Set toolbar listener to handle button actions
     void setToolbarListener(ToolbarListener toolbarListener){
         this.toolbarListener = toolbarListener;
     }
 
+    // Initialize toolbar components (buttons)
     private void initComps() {
         this.saveAsText = new JButton("Save txt");
         this.saveObjects = new JButton("Save bin");
         this.loadObjects = new JButton("Load bin");
         this.loadText = new JButton("Load txt");
         this.clearAll = new JButton("Clear all");
-
-
     }
 
+    // Arrange toolbar buttons in a flow layout
     private void layoutComps() {
         setLayout(new FlowLayout(FlowLayout.LEFT));
         add(saveAsText);
@@ -44,6 +44,7 @@ public class ToolBar extends JPanel implements ActionListener {
         add(clearAll);
     }
 
+    // Attach action listeners to toolbar buttons
     private void activateToolBar() {
         saveAsText.addActionListener(this);
         saveAsText.setActionCommand("Save TXT");
@@ -55,44 +56,41 @@ public class ToolBar extends JPanel implements ActionListener {
         loadObjects.setActionCommand("Load BIN");
         clearAll.addActionListener(this);
         clearAll.setActionCommand("Clear all");
-
     }
 
+    // Handle button click events
     @Override
     public void actionPerformed(ActionEvent ae) {
-        if(ae.getSource() == saveAsText){
-            if(toolbarListener != null){
+        if (ae.getSource() == saveAsText) {
+            if (toolbarListener != null) {
                 toolbarListener.toolbarEventOccured(saveAsText.getActionCommand());
             }
             System.out.println("Clicked: " + saveAsText.getActionCommand());
         }
 
-        if(ae.getSource() == saveObjects){
-            if(toolbarListener != null){
+        if (ae.getSource() == saveObjects) {
+            if (toolbarListener != null) {
                 toolbarListener.toolbarEventOccured(saveObjects.getActionCommand());
             }
             System.out.println("Clicked: " + saveObjects.getActionCommand());
         }
 
-        if(ae.getSource() == loadText){
+        if (ae.getSource() == loadText) {
             System.out.println("Clicked: " + loadText.getActionCommand());
-            if(toolbarListener != null){
+            if (toolbarListener != null) {
                 toolbarListener.toolbarEventOccured(loadText.getActionCommand());
             }
         }
-        if(ae.getSource() == loadObjects){
+
+        if (ae.getSource() == loadObjects) {
             System.out.println("Clicked: " + loadObjects.getActionCommand());
-            if(toolbarListener != null){
+            if (toolbarListener != null) {
                 toolbarListener.toolbarEventOccured(loadObjects.getActionCommand());
             }
         }
 
-        if(ae.getSource() == loadObjects){
-            System.out.println("Clicked: " + loadObjects.getActionCommand());
-        }
-
-        if(ae.getSource() == clearAll){
-            if(toolbarListener != null){
+        if (ae.getSource() == clearAll) {
+            if (toolbarListener != null) {
                 toolbarListener.toolbarEventOccured(clearAll.getActionCommand());
             }
             System.out.println("Clicked: " + clearAll.getActionCommand());

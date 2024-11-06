@@ -2,7 +2,7 @@ package gui_calculator_pckg;
 
 import java.io.Serializable;
 
-// record je data class
+// Data record class to store calculation input, result, and strategy
 public record CalculationFormData(double fst, double snd, double result, CalculationStrategy calStrategy) implements Serializable {
 
     @Override

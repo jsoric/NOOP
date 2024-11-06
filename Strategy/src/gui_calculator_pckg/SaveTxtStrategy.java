@@ -8,15 +8,16 @@ import java.io.IOException;
 import java.util.List;
 
 public class SaveTxtStrategy implements SaveDataStrategy<String> {
+    String filePath;
 
     @Override
-    public void saveDataToFile(String filePath, List<String> data) {
-        // Use JFileChooser to select a file location
+    public void saveDataToFile(List<String> data) {
         JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setCurrentDirectory(new File("C:\\Users\\josip.soric\\IdeaProjects\\Napredno Objektno Programiranje\\NOOP\\Strategy\\DATA"));
+
         fileChooser.setDialogTitle("Select a File to Save");
         int result = fileChooser.showSaveDialog(null);
 
-        // Check if user selected a file
         if (result == JFileChooser.APPROVE_OPTION) {
             File selectedFile = fileChooser.getSelectedFile();
             try (BufferedWriter bw = new BufferedWriter(new FileWriter(selectedFile))) {
@@ -31,5 +32,6 @@ public class SaveTxtStrategy implements SaveDataStrategy<String> {
         } else {
             System.out.println("No file selected for saving.");
         }
+
     }
 }
