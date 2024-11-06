@@ -1,0 +1,1 @@
+CalculationFormData{fst=2.0, snd=2.0, result=0.0, calStrategy=SubstractCalcStrategy{}}
