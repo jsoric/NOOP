@@ -11,6 +11,7 @@ public class AppTest {
         client.skipToNextPage();
         client.giveMeThisPage(101);
         client.turnNightModeON();
+        System.out.println("-----------------");
         Book book = new Book("The last principe", "A.G.Marty", 230);
         FSTBookReader bookReader = new FSTBookReader();
         bookReader.setBook(book);
