@@ -1,8 +1,6 @@
 package fst_adapter_pckg;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class AppTest {
 
@@ -15,5 +13,12 @@ public class AppTest {
         clientFst.removeFetchedElement();
         System.out.println("After removal...");
         clientFst.someInfo();
+        Enumeration enumString = new StringTokenizer("This is some string for tokenization.");
+        AdapterEnumeration<String> adapterEnumeration = new AdapterEnumeration<String>(enumString);
+
+        Client<String> sndClient = new Client<>(adapterEnumeration);
+//        sndClient.someInfo();
+        sndClient.removeFetchedElement();
+        sndClient.someInfo();
     }
 }
