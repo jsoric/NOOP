@@ -1,8 +1,0 @@
-Potrebno je napraviti sljedeće:
-
-1. Realizirati strategiju za spremanje objekata klase CalculationFormDate
-2. Realizirati startegiju za čitanje tih objekata iz bin datoteke
-3. "Hard coded" filePath zamijeniti s JFileChooser -> default folder "DATA" unutar glavnog modula
-4. Čitanje podataka iz datoteke riješiti na način da se prvo trenutni podatci, ako ih ima spreme u neku datoteku
-5. Osigurati provjere unosa u formu - s pripadnim porukama (JOptionPane)
-6. Obavezno ispravno primjeniti upravljanje iznimkama
