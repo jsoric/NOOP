@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ADAPTER/ADAPTER.iml" filepath="$PROJECT_DIR$/ADAPTER/ADAPTER.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GithubTask01/GithubTask01.iml" filepath="$PROJECT_DIR$/GithubTask01/GithubTask01.iml" />
       <module fileurl="file://$PROJECT_DIR$/JAVA_GENERICS/JAVA_GENERICS.iml" filepath="$PROJECT_DIR$/JAVA_GENERICS/JAVA_GENERICS.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/NOOP.iml" filepath="$PROJECT_DIR$/.idea/NOOP.iml" />
       <module fileurl="file://$PROJECT_DIR$/OBSERVER/OBSERVER.iml" filepath="$PROJECT_DIR$/OBSERVER/OBSERVER.iml" />
