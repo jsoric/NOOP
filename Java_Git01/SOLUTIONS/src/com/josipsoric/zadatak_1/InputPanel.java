@@ -21,20 +21,12 @@ public class InputPanel extends JPanel {
     private JRadioButton daysChoice6;
     private JRadioButton daysChoice7;
     private JButton sendButton;
-    private DisplayPanel displayPanel;
+    private InputPanelListener listener;
 
-    public String getResultData() {
-        return resultData;
-    }
-
-    private String resultData;
-
-
-    public InputPanel(){
-        this.displayPanel = displayPanel;
+    public InputPanel() {
         Dimension dims = getPreferredSize();
         this.setPreferredSize(dims);
-        Border outer = BorderFactory.createEmptyBorder(5,5,5,5);
+        Border outer = BorderFactory.createEmptyBorder(5, 5, 5, 5);
         Border inner = BorderFactory.createTitledBorder("Input Data: ");
         Border border = BorderFactory.createCompoundBorder(outer, inner);
         setBorder(border);
@@ -56,9 +48,16 @@ public class InputPanel extends JPanel {
         this.daysChoice5 = new JRadioButton("Friday");
         this.daysChoice6 = new JRadioButton("Saturday");
         this.daysChoice7 = new JRadioButton("Sunday");
+
+        ButtonGroup daysGroup = new ButtonGroup();
+        daysGroup.add(daysChoice1);
+        daysGroup.add(daysChoice2);
+        daysGroup.add(daysChoice3);
+        daysGroup.add(daysChoice4);
+        daysGroup.add(daysChoice5);
+        daysGroup.add(daysChoice6);
+        daysGroup.add(daysChoice7);
         sendButton = new JButton("Send");
-
-
     }
 
     private void layoutComps() {
@@ -123,16 +122,38 @@ public class InputPanel extends JPanel {
         add(sendButton, gbc);
     }
 
-    // Activate the form by adding action listeners to components
+    public void setListener(InputPanelListener listener) {
+        this.listener = listener;
+    }
+
     private void activateFormPanel() {
         sendButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                StringBuilder sb = new StringBuilder();
 
-                    resultData = inputField.getText();
+                // Get the text from the input field
+                sb.append("Input Text: ").append(inputField.getText()).append("\n");
 
+                // Check which notifications are selected
+                if (notifyChoice1.isSelected()) sb.append("Notification: mail\n");
+                if (notifyChoice2.isSelected()) sb.append("Notification: sms\n");
+                if (notifyChoice3.isSelected()) sb.append("Notification: messenger\n");
+
+                // Check which day is selected
+                if (daysChoice1.isSelected()) sb.append("Day: Monday\n");
+                if (daysChoice2.isSelected()) sb.append("Day: Tuesday\n");
+                if (daysChoice3.isSelected()) sb.append("Day: Wednesday\n");
+                if (daysChoice4.isSelected()) sb.append("Day: Thursday\n");
+                if (daysChoice5.isSelected()) sb.append("Day: Friday\n");
+                if (daysChoice6.isSelected()) sb.append("Day: Saturday\n");
+                if (daysChoice7.isSelected()) sb.append("Day: Sunday\n");
+
+                // Notify the listener
+                if (listener != null) {
+                    listener.inputPanelEventOccurred(sb.toString());
+                }
             }
         });
     }
 }
-
