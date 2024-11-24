@@ -26,7 +26,7 @@ public class DisplayPanel extends JPanel {
 
     public void addTextToViewPanel(String dataText){
         System.out.println("text added");
-        textArea.setText("dataText");
+        textArea.append(dataText);
     }
 
 }
