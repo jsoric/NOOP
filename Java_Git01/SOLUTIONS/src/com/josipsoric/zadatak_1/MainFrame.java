@@ -9,6 +9,7 @@ public class MainFrame extends JFrame {
     private FontPanel fontPanel;
     private DisplayPanel displayPanel;
 
+
     public MainFrame() {
         super("Presentation App");
         ImageIcon icon = new ImageIcon("Imgs/icon.png");
@@ -19,8 +20,8 @@ public class MainFrame extends JFrame {
         setLocationRelativeTo(null);
         initComps();
         layoutComps();
-        activateAll();
         setVisible(true);
+        activateMainFrame();
     }
 
     private void initComps() {
@@ -53,12 +54,15 @@ public class MainFrame extends JFrame {
         add(displayPanel, gbc);
     }
 
-    private void activateAll() {
-        inputPanel.setListener(new InputPanelListener() {
+    private void activateMainFrame(){
+        inputPanel.setInputPanelListener(new InputPanelListener() {
             @Override
-            public void inputPanelEventOccurred(String resultData) {
-                displayPanel.addTextToViewPanel(resultData + "\n");
+            public void sendButtonClick(String input) {
+                displayPanel.addTextToViewPanel(input);
             }
         });
     }
-}
+
+
+    }
+

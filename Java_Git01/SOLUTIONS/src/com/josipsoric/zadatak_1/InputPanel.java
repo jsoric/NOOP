@@ -6,7 +6,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class InputPanel extends JPanel {
+public class InputPanel extends JPanel implements ActionListener{
 
     private JTextField inputField;
     private JCheckBox notifyChoice1;
@@ -21,7 +21,11 @@ public class InputPanel extends JPanel {
     private JRadioButton daysChoice6;
     private JRadioButton daysChoice7;
     private JButton sendButton;
-    private InputPanelListener listener;
+    private InputPanelListener inputPanelListener;
+
+    public void setInputPanelListener(InputPanelListener inputPanelListener) {
+        this.inputPanelListener = inputPanelListener;
+    }
 
     public InputPanel() {
         Dimension dims = getPreferredSize();
@@ -33,7 +37,6 @@ public class InputPanel extends JPanel {
 
         initComps();
         layoutComps();
-        activateFormPanel();
     }
 
     private void initComps() {
@@ -122,38 +125,27 @@ public class InputPanel extends JPanel {
         add(sendButton, gbc);
     }
 
-    public void setListener(InputPanelListener listener) {
-        this.listener = listener;
-    }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+            StringBuilder sb = new StringBuilder();
 
-    private void activateFormPanel() {
-        sendButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                StringBuilder sb = new StringBuilder();
+            // Get the text from the input field
+            sb.append("Input Text: ").append(inputField.getText()).append("\n");
 
-                // Get the text from the input field
-                sb.append("Input Text: ").append(inputField.getText()).append("\n");
+            // Check which notifications are selected
+            if (notifyChoice1.isSelected()) sb.append("Notification: mail\n");
+            if (notifyChoice2.isSelected()) sb.append("Notification: sms\n");
+            if (notifyChoice3.isSelected()) sb.append("Notification: messenger\n");
 
-                // Check which notifications are selected
-                if (notifyChoice1.isSelected()) sb.append("Notification: mail\n");
-                if (notifyChoice2.isSelected()) sb.append("Notification: sms\n");
-                if (notifyChoice3.isSelected()) sb.append("Notification: messenger\n");
+            // Check which day is selected
+            if (daysChoice1.isSelected()) sb.append("Day: Monday\n");
+            if (daysChoice2.isSelected()) sb.append("Day: Tuesday\n");
+            if (daysChoice3.isSelected()) sb.append("Day: Wednesday\n");
+            if (daysChoice4.isSelected()) sb.append("Day: Thursday\n");
+            if (daysChoice5.isSelected()) sb.append("Day: Friday\n");
+            if (daysChoice6.isSelected()) sb.append("Day: Saturday\n");
+            if (daysChoice7.isSelected()) sb.append("Day: Sunday\n");
 
-                // Check which day is selected
-                if (daysChoice1.isSelected()) sb.append("Day: Monday\n");
-                if (daysChoice2.isSelected()) sb.append("Day: Tuesday\n");
-                if (daysChoice3.isSelected()) sb.append("Day: Wednesday\n");
-                if (daysChoice4.isSelected()) sb.append("Day: Thursday\n");
-                if (daysChoice5.isSelected()) sb.append("Day: Friday\n");
-                if (daysChoice6.isSelected()) sb.append("Day: Saturday\n");
-                if (daysChoice7.isSelected()) sb.append("Day: Sunday\n");
-
-                // Notify the listener
-                if (listener != null) {
-                    listener.inputPanelEventOccurred(sb.toString());
-                }
-            }
-        });
+            inputPanelListener.sendButtonClick(sb.toString());
     }
 }
