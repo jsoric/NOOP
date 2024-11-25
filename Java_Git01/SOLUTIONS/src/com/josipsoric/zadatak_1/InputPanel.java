@@ -61,7 +61,8 @@ public class InputPanel extends JPanel implements ActionListener{
         daysGroup.add(daysChoice6);
         daysGroup.add(daysChoice7);
         sendButton = new JButton("Send");
-        sendButton.addActionListener(this);    }
+        sendButton.addActionListener(this);
+    }
 
     private void layoutComps() {
         setLayout(new GridBagLayout());

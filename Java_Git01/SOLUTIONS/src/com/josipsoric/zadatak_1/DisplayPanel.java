@@ -28,5 +28,9 @@ public class DisplayPanel extends JPanel {
         System.out.println("text added");
         textArea.append(dataText);
     }
+    public void setTextFont(Font font) {
+        textArea.setFont(font);
+    }
+
 
 }

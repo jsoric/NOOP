@@ -61,7 +61,19 @@ public class MainFrame extends JFrame {
                 displayPanel.addTextToViewPanel(input);
             }
         });
+
+        fontPanel.setFontPanelListener(new FontPanelListener() {
+            @Override
+            public void fontSettings(String fontName, int fontSize) {
+                if (fontName != null && !fontName.isEmpty()) {
+                    Font newFont = new Font(fontName, Font.PLAIN, fontSize); // Default style to Plain
+                    displayPanel.setTextFont(newFont);
+                }
+            }
+        });
     }
+
+
 
 
     }

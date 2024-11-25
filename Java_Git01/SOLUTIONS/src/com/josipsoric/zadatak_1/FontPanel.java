@@ -3,8 +3,10 @@ package com.josipsoric.zadatak_1;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class FontPanel extends JPanel {
+public class FontPanel extends JPanel implements ActionListener {
 
     private JList<String> fontList;
     private JScrollPane jscrollPane;
@@ -12,6 +14,12 @@ public class FontPanel extends JPanel {
     private JSlider fontSizeSlider;
     private JButton confirmButton;
     private JButton resetButton;
+    private FontPanelListener fontPanelListener;
+
+    public void setFontPanelListener(FontPanelListener fontPanelListener) {
+        this.fontPanelListener = fontPanelListener;
+    }
+
 
     public FontPanel() {
 
@@ -54,6 +62,7 @@ public class FontPanel extends JPanel {
         confirmButton = new JButton("Confirm settings");
         resetButton = new JButton("Reset all");
 
+
     }
 
     private void layoutComps() {
@@ -89,4 +98,16 @@ public class FontPanel extends JPanel {
 
 
     }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (fontPanelListener != null) {
+            String fontName = fontList.getSelectedValue();
+            int fontSize = fontSizeSlider.getValue();
+            fontPanelListener.fontSettings(fontName, fontSize);
+        }
+    }
+
+
+
 }
