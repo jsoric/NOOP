@@ -51,6 +51,7 @@ public class FormPanel extends JPanel {
     private void layoutComps() {
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
+        gbc.fill = GridBagConstraints.BOTH;
         gbc.insets = new Insets(0,15,5,15);
 
         gbc.gridx = 0;
