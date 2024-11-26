@@ -130,15 +130,12 @@ public class InputPanel extends JPanel implements ActionListener{
     public void actionPerformed(ActionEvent e) {
             StringBuilder sb = new StringBuilder();
 
-            // Get the text from the input field
             sb.append("Input Text: ").append(inputField.getText()).append("\n");
 
-            // Check which notifications are selected
             if (notifyChoice1.isSelected()) sb.append("Notification: mail\n");
             if (notifyChoice2.isSelected()) sb.append("Notification: sms\n");
             if (notifyChoice3.isSelected()) sb.append("Notification: messenger\n");
 
-            // Check which day is selected
             if (daysChoice1.isSelected()) sb.append("Day: Monday\n");
             if (daysChoice2.isSelected()) sb.append("Day: Tuesday\n");
             if (daysChoice3.isSelected()) sb.append("Day: Wednesday\n");

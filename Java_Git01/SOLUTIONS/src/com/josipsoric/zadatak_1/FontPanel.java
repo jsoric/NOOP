@@ -16,26 +16,23 @@ public class FontPanel extends JPanel implements ActionListener {
     private JButton resetButton;
     private FontPanelListener fontPanelListener;
 
-    public void setFontPanelListener(FontPanelListener fontPanelListener) {
-        this.fontPanelListener = fontPanelListener;
-    }
-
-
     public FontPanel() {
-
         Dimension dims = getPreferredSize();
         this.setPreferredSize(dims);
         Border outer = BorderFactory.createEmptyBorder(1, 1, 1, 1);
         Border inner = BorderFactory.createTitledBorder("Font Data: ");
         Border border = BorderFactory.createCompoundBorder(outer, inner);
         setBorder(border);
-
         initComps();
         layoutComps();
+        acivateComps();
+    }
+
+    public void setFontPanelListener(FontPanelListener fontPanelListener) {
+        this.fontPanelListener = fontPanelListener;
     }
 
     private void initComps() {
-
         String[] fonts = {
                 "Arial", "Verdana", "Tahoma", "Times New Roman", "Courier New",
                 "Georgia", "Monospaced", "Comic Sans MS", "Impact", "Sans Serif"
@@ -52,17 +49,15 @@ public class FontPanel extends JPanel implements ActionListener {
         fontStyle.addItem("Italic");
         fontStyle.addItem("Bold Italic");
 
-        fontSizeSlider = new JSlider(JSlider.HORIZONTAL, 8, 18, 12); // Min: 8, Max: 18, Default: 12
-        fontSizeSlider.setMajorTickSpacing(2); // Major tick every 2 units
-        fontSizeSlider.setMinorTickSpacing(1); // Minor tick every 1 unit
-        fontSizeSlider.setPaintTicks(true); // Show tick marks
-        fontSizeSlider.setPaintLabels(true); // Show labels
-        fontSizeSlider.setLabelTable(fontSizeSlider.createStandardLabels(2)); // Labels at major ticks
+        fontSizeSlider = new JSlider(JSlider.HORIZONTAL, 8, 18, 12);
+        fontSizeSlider.setMajorTickSpacing(2);
+        fontSizeSlider.setMinorTickSpacing(1);
+        fontSizeSlider.setPaintTicks(true);
+        fontSizeSlider.setPaintLabels(true);
+        fontSizeSlider.setLabelTable(fontSizeSlider.createStandardLabels(2));
 
         confirmButton = new JButton("Confirm settings");
         resetButton = new JButton("Reset all");
-
-
     }
 
     private void layoutComps() {
@@ -97,6 +92,9 @@ public class FontPanel extends JPanel implements ActionListener {
         add(resetButton, gbc);
 
 
+    }
+    private void acivateComps() {
+        confirmButton.addActionListener(this);
     }
 
     @Override
