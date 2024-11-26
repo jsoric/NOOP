@@ -15,11 +15,11 @@ public class MainFrame extends JFrame {
         setIconImage(icon.getImage());
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
-        setSize(850, 650);
+        setSize(650, 550);
         setLocationRelativeTo(null);
+        setVisible(true);
         initComps();
         layoutComps();
-        setVisible(true);
         activateMainFrame();
     }
 
@@ -33,14 +33,11 @@ public class MainFrame extends JFrame {
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
 
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        gbc.gridwidth = 1;
-        gbc.gridheight = 1;
+        gbc.fill = GridBagConstraints.BOTH;
         gbc.weightx = 0.5;
         gbc.weighty = 0.5;
-        gbc.fill = GridBagConstraints.BOTH;
-        gbc.anchor = GridBagConstraints.CENTER;
+        gbc.gridx = 0;
+        gbc.gridy = 0;
         add(inputPanel, gbc);
 
         gbc.gridx = 0;

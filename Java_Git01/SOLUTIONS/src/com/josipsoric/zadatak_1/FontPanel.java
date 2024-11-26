@@ -63,6 +63,7 @@ public class FontPanel extends JPanel implements ActionListener {
     private void layoutComps() {
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
+        gbc.fill = GridBagConstraints.BOTH;
 
         gbc.anchor = GridBagConstraints.CENTER;
         gbc.gridx = 0;
@@ -73,6 +74,7 @@ public class FontPanel extends JPanel implements ActionListener {
 
         gbc.anchor = GridBagConstraints.NORTH;
 
+        gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.gridx = 1;
         gbc.gridy = 0;
         gbc.weightx = 0.5;

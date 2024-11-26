@@ -23,10 +23,11 @@ public class DisplayPanel extends JPanel {
         setBorder(border);
     }
 
-    public void addTextToViewPanel(String dataText){
+     public void addTextToViewPanel(String dataText){
         textArea.setFont(font);
         textArea.append(dataText);
     }
+
 
     public void setTextFont(Font font) {
         this.font=font;

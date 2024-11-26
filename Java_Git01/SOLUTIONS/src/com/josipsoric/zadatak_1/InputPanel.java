@@ -68,16 +68,16 @@ public class InputPanel extends JPanel implements ActionListener{
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
 
-        gbc.anchor = GridBagConstraints.WEST;
+        gbc.fill = GridBagConstraints.BOTH;
 
+        gbc.anchor = GridBagConstraints.WEST;
         gbc.gridx = 0;
         gbc.gridy = 0;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
+
         gbc.weightx = 1.0;
         gbc.weighty = 0.0;
         add(inputField, gbc);
 
-        gbc.fill = GridBagConstraints.NONE; //
         gbc.weightx = 0.0;
         gbc.weighty = 0.0;
 
