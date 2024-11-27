@@ -6,7 +6,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class FormPanel extends JPanel {
+public class FormPanel extends JPanel implements FormPanelListener {
 
     private JTextField usernameField;
     private JTextField emailField;
@@ -15,6 +15,13 @@ public class FormPanel extends JPanel {
     private JButton confirmButton;
     private JScrollPane jscrollPane;
     JList<String> itemList = new JList<>();
+    private FormPanelListener formPanelListener;
+
+    public void setFormPanelListener(FormPanelListener formPanelListener) {
+        this.formPanelListener = formPanelListener;
+    }
+
+
 
 
     public FormPanel() {
@@ -100,4 +107,14 @@ public class FormPanel extends JPanel {
         add(new JButton("Confirm"),gbc);
 
     }
+
+    public void actionPerformed(ActionEvent e){
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("Input Text: ").append(usernameField.getText()).append("\n").append(emailField);
+        formPanelListener.sendButtonAction(sb.toString());
+    }
+
+
+
 }

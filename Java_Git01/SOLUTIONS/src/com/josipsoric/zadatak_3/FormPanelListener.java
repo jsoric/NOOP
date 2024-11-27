@@ -1,4 +1,8 @@
 package com.josipsoric.zadatak_3;
 
-public interface FormPanelListener {
+import java.util.EventListener;
+
+public interface FormPanelListener extends EventListener {
+
+    void sendButtonAction(String data);
 }

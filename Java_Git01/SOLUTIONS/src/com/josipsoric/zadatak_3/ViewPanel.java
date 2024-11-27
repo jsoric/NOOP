@@ -18,4 +18,8 @@ public class ViewPanel extends JPanel {
         add(scrollPane, BorderLayout.CENTER);
     }
 
+    public void addTextToViewPanel(String dataText){
+        textArea.append(dataText);
+    }
+
 }
