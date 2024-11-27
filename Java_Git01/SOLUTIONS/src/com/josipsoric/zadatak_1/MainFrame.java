@@ -15,7 +15,7 @@ public class MainFrame extends JFrame {
         setIconImage(icon.getImage());
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
-        setSize(650, 550);
+        setSize(700, 550);
         setLocationRelativeTo(null);
         setVisible(true);
         initComps();
@@ -27,6 +27,7 @@ public class MainFrame extends JFrame {
         inputPanel = new InputPanel();
         fontPanel = new FontPanel();
         displayPanel = new DisplayPanel();
+        displayPanel.setPreferredSize(new Dimension(50, 500));
     }
 
     private void layoutComps() {
@@ -66,11 +67,13 @@ public class MainFrame extends JFrame {
                     displayPanel.setTextFont(newFont);
                 }
             }
+
+            @Override
+            public void resetSettings(String call) {
+                fontPanel.resetPanel();
+                inputPanel.resetPanel();
+                displayPanel.deleteTextOnPanel();
+            }
         });
     }
-
-
-
-
-    }
-
+}

@@ -20,6 +20,8 @@ public class InputPanel extends JPanel implements ActionListener{
     private JRadioButton daysChoice5;
     private JRadioButton daysChoice6;
     private JRadioButton daysChoice7;
+    private ButtonGroup daysGroup;
+
     private JButton sendButton;
     private InputPanelListener inputPanelListener;
 
@@ -52,7 +54,7 @@ public class InputPanel extends JPanel implements ActionListener{
         this.daysChoice6 = new JRadioButton("Saturday");
         this.daysChoice7 = new JRadioButton("Sunday");
 
-        ButtonGroup daysGroup = new ButtonGroup();
+        daysGroup = new ButtonGroup();
         daysGroup.add(daysChoice1);
         daysGroup.add(daysChoice2);
         daysGroup.add(daysChoice3);
@@ -128,22 +130,30 @@ public class InputPanel extends JPanel implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-            StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
 
-            sb.append("Input Text: ").append(inputField.getText()).append("\n");
+        sb.append("Input Text: ").append(inputField.getText()).append("\n");
 
-            if (notifyChoice1.isSelected()) sb.append("Notification: mail\n");
-            if (notifyChoice2.isSelected()) sb.append("Notification: sms\n");
-            if (notifyChoice3.isSelected()) sb.append("Notification: messenger\n");
+        if (notifyChoice1.isSelected()) sb.append("Notification: mail\n");
+        if (notifyChoice2.isSelected()) sb.append("Notification: sms\n");
+        if (notifyChoice3.isSelected()) sb.append("Notification: messenger\n");
 
-            if (daysChoice1.isSelected()) sb.append("Day: Monday\n");
-            if (daysChoice2.isSelected()) sb.append("Day: Tuesday\n");
-            if (daysChoice3.isSelected()) sb.append("Day: Wednesday\n");
-            if (daysChoice4.isSelected()) sb.append("Day: Thursday\n");
-            if (daysChoice5.isSelected()) sb.append("Day: Friday\n");
-            if (daysChoice6.isSelected()) sb.append("Day: Saturday\n");
-            if (daysChoice7.isSelected()) sb.append("Day: Sunday\n");
+        if (daysChoice1.isSelected()) sb.append("Day: Monday\n");
+        if (daysChoice2.isSelected()) sb.append("Day: Tuesday\n");
+        if (daysChoice3.isSelected()) sb.append("Day: Wednesday\n");
+        if (daysChoice4.isSelected()) sb.append("Day: Thursday\n");
+        if (daysChoice5.isSelected()) sb.append("Day: Friday\n");
+        if (daysChoice6.isSelected()) sb.append("Day: Saturday\n");
+        if (daysChoice7.isSelected()) sb.append("Day: Sunday\n");
 
-            inputPanelListener.sendButtonClick(sb.toString());
+        inputPanelListener.sendButtonClick(sb.toString());
+    }
+
+    public void resetPanel(){
+        inputField.setText("");
+        notifyChoice1.setSelected(false);
+        notifyChoice2.setSelected(false);
+        notifyChoice3.setSelected(false);
+        daysGroup.clearSelection();
     }
 }

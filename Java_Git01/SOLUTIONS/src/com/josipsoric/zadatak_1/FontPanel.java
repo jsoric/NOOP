@@ -10,7 +10,7 @@ public class FontPanel extends JPanel implements ActionListener {
 
     private JList<String> fontList;
     private JScrollPane jscrollPane;
-    private JComboBox fontStyle;
+    private JComboBox<String> fontStyle;
     private JSlider fontSizeSlider;
     private JButton confirmButton;
     private JButton resetButton;
@@ -49,6 +49,8 @@ public class FontPanel extends JPanel implements ActionListener {
         fontStyle.addItem("Italic");
         fontStyle.addItem("Bold Italic");
 
+        jscrollPane.setPreferredSize(new Dimension(fontStyle.getWidth(), fontStyle.getHeight()));
+
         fontSizeSlider = new JSlider(JSlider.HORIZONTAL, 8, 18, 12);
         fontSizeSlider.setMajorTickSpacing(2);
         fontSizeSlider.setMinorTickSpacing(1);
@@ -57,7 +59,9 @@ public class FontPanel extends JPanel implements ActionListener {
         fontSizeSlider.setLabelTable(fontSizeSlider.createStandardLabels(2));
 
         confirmButton = new JButton("Confirm settings");
+
         resetButton = new JButton("Reset all");
+        resetButton.setActionCommand("reset");
     }
 
     private void layoutComps() {
@@ -92,22 +96,29 @@ public class FontPanel extends JPanel implements ActionListener {
         gbc.gridx = 1;
         gbc.gridy = 3;
         add(resetButton, gbc);
-
-
     }
+
     private void acivateComps() {
         confirmButton.addActionListener(this);
+        resetButton.addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (fontPanelListener != null) {
+        if (fontPanelListener != null && !e.getActionCommand().equals("reset")) {
             String fontName = fontList.getSelectedValue();
             int fontSize = fontSizeSlider.getValue();
             fontPanelListener.fontSettings(fontName, fontSize);
         }
+        if (e.getActionCommand().equals("reset")) {
+            fontPanelListener.resetSettings(e.getActionCommand());
+        }
     }
 
-
+    public void resetPanel(){
+        fontStyle.setSelectedIndex(0);
+        fontSizeSlider.setValue(12);
+        fontList.clearSelection();
+    }
 
 }
