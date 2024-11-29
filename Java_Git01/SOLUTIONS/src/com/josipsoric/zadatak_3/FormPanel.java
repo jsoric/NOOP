@@ -116,5 +116,8 @@ public class FormPanel extends JPanel implements FormPanelListener {
     }
 
 
+    @Override
+    public void sendButtonAction(String data) {
 
+    }
 }
