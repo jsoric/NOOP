@@ -1,10 +1,11 @@
 package com.josipsoric.zadatak_3;
 
+import com.josipsoric.zadatak_3.strategy.FormPanelListener;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class FormPanel extends JPanel implements FormPanelListener {
 
@@ -20,10 +21,6 @@ public class FormPanel extends JPanel implements FormPanelListener {
     public void setFormPanelListener(FormPanelListener formPanelListener) {
         this.formPanelListener = formPanelListener;
     }
-
-
-
-
     public FormPanel() {
         Dimension dims = getPreferredSize();
         dims.height = 220;
@@ -116,5 +113,8 @@ public class FormPanel extends JPanel implements FormPanelListener {
     }
 
 
+    @Override
+    public void sendButtonAction(String data) {
 
+    }
 }

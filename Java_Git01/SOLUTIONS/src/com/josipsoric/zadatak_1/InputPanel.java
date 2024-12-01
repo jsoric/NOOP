@@ -32,7 +32,7 @@ public class InputPanel extends JPanel implements ActionListener{
     public InputPanel() {
         Dimension dims = getPreferredSize();
         this.setPreferredSize(dims);
-        Border outer = BorderFactory.createEmptyBorder(5, 5, 5, 5);
+        Border outer = BorderFactory.createEmptyBorder(1, 1, 1, 1);
         Border inner = BorderFactory.createTitledBorder("Input Data: ");
         Border border = BorderFactory.createCompoundBorder(outer, inner);
         setBorder(border);

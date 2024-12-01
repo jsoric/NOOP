@@ -24,7 +24,7 @@ public class DisplayPanel extends JPanel {
         scrollPane = new JScrollPane(textArea, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setPreferredSize(new Dimension(320, 460));
 
-        Border outer = BorderFactory.createEmptyBorder(5,5,5,5);
+        Border outer = BorderFactory.createEmptyBorder(1,1,1,1);
         Border inner = BorderFactory.createTitledBorder("Display Area: ");
         Border border = BorderFactory.createCompoundBorder(outer, inner);
         setBorder(border);

@@ -1,4 +1,4 @@
-package com.josipsoric.zadatak_3;
+package com.josipsoric.zadatak_3.strategy;
 
 import java.util.EventListener;
 

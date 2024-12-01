@@ -9,7 +9,7 @@ public class TestGens_1 {
     private static CompareTwo compareTwo;
 
     public static void main(String[] args) {
-        ArrayList<User> users = popListUsers(3);
+        ArrayList<User> users = popListUsers(10);
         System.out.println("Original list:");
         System.out.println(users);
 
@@ -18,6 +18,7 @@ public class TestGens_1 {
         System.out.println(users);
 
         List<int[]> combinations = getCombinations(users);
+
         for (int[] pair : combinations) {
             compareTwo = new CompareTwo<>(pair[0], pair[1]);
             System.out.println("\n-------------------------------------------------------\n");
