@@ -11,8 +11,6 @@ public class MainFrame extends JFrame {
 
     public MainFrame() {
         super("Presentation App");
-        ImageIcon icon = new ImageIcon("Imgs/icon.png");
-        setIconImage(icon.getImage());
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
         setSize(700, 550);
@@ -58,7 +56,6 @@ public class MainFrame extends JFrame {
                 displayPanel.addTextToViewPanel(input);
             }
         });
-
         fontPanel.setFontPanelListener(new FontPanelListener() {
             @Override
             public void fontSettings(String fontName, int fontSize) {
@@ -67,7 +64,6 @@ public class MainFrame extends JFrame {
                     displayPanel.setTextFont(newFont);
                 }
             }
-
             @Override
             public void resetSettings(String call) {
                 fontPanel.resetPanel();

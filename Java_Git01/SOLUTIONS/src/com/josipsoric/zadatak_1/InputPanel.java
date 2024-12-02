@@ -6,13 +6,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class InputPanel extends JPanel implements ActionListener{
+public class InputPanel extends JPanel implements ActionListener {
 
     private JTextField inputField;
     private JCheckBox notifyChoice1;
     private JCheckBox notifyChoice2;
     private JCheckBox notifyChoice3;
-
     private JRadioButton daysChoice1;
     private JRadioButton daysChoice2;
     private JRadioButton daysChoice3;
@@ -21,7 +20,6 @@ public class InputPanel extends JPanel implements ActionListener{
     private JRadioButton daysChoice6;
     private JRadioButton daysChoice7;
     private ButtonGroup daysGroup;
-
     private JButton sendButton;
     private InputPanelListener inputPanelListener;
 
@@ -36,7 +34,6 @@ public class InputPanel extends JPanel implements ActionListener{
         Border inner = BorderFactory.createTitledBorder("Input Data: ");
         Border border = BorderFactory.createCompoundBorder(outer, inner);
         setBorder(border);
-
         initComps();
         layoutComps();
     }
@@ -156,4 +153,5 @@ public class InputPanel extends JPanel implements ActionListener{
         notifyChoice3.setSelected(false);
         daysGroup.clearSelection();
     }
+
 }

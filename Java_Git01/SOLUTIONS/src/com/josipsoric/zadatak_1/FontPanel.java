@@ -16,6 +16,10 @@ public class FontPanel extends JPanel implements ActionListener {
     private JButton resetButton;
     private FontPanelListener fontPanelListener;
 
+    public void setFontPanelListener(FontPanelListener fontPanelListener) {
+        this.fontPanelListener = fontPanelListener;
+    }
+
     public FontPanel() {
         Dimension dims = getPreferredSize();
         this.setPreferredSize(dims);
@@ -25,14 +29,11 @@ public class FontPanel extends JPanel implements ActionListener {
         setBorder(border);
         initComps();
         layoutComps();
-        acivateComps();
-    }
-
-    public void setFontPanelListener(FontPanelListener fontPanelListener) {
-        this.fontPanelListener = fontPanelListener;
+        activateComps();
     }
 
     private void initComps() {
+
         String[] fonts = {
                 "Arial", "Verdana", "Tahoma", "Times New Roman", "Courier New",
                 "Georgia", "Monospaced", "Comic Sans MS", "Impact", "Sans Serif"
@@ -41,7 +42,6 @@ public class FontPanel extends JPanel implements ActionListener {
         fontList = new JList<>(fonts);
         fontList.setVisibleRowCount(4);
         fontList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        jscrollPane = new JScrollPane(fontList);
 
         fontStyle = new JComboBox<>();
         fontStyle.addItem("Plain");
@@ -49,6 +49,7 @@ public class FontPanel extends JPanel implements ActionListener {
         fontStyle.addItem("Italic");
         fontStyle.addItem("Bold Italic");
 
+        jscrollPane = new JScrollPane(fontList);
         jscrollPane.setPreferredSize(new Dimension(fontStyle.getWidth(), fontStyle.getHeight()));
 
         fontSizeSlider = new JSlider(JSlider.HORIZONTAL, 8, 18, 12);
@@ -97,8 +98,7 @@ public class FontPanel extends JPanel implements ActionListener {
         gbc.gridy = 3;
         add(resetButton, gbc);
     }
-
-    private void acivateComps() {
+    private void activateComps() {
         confirmButton.addActionListener(this);
         resetButton.addActionListener(this);
     }

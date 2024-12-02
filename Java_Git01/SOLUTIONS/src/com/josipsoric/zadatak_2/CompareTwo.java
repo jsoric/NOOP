@@ -1,6 +1,5 @@
 package com.josipsoric.zadatak_2;
 
-
 public class CompareTwo <T extends Comparable<T>> {
 
     private T fst;

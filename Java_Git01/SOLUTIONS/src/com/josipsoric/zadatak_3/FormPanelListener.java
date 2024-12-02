@@ -1,8 +1,8 @@
-package com.josipsoric.zadatak_3.strategy;
+package com.josipsoric.zadatak_3;
 
 import java.util.EventListener;
 
 public interface FormPanelListener extends EventListener {
 
-    void sendButtonAction(String data);
+    void sendButtonClick(String input);
 }

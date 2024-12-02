@@ -1,6 +1,7 @@
-package com.josipsoric.zadatak_3.strategy;
+package com.josipsoric.zadatak_3.Strategy;
 
-public interface LoadDataStrategy {
+import java.util.List;
 
-    <E> void performLoading(String filePath, ViewPanelInterface viewPanelInt);
+public interface LoadDataStrategy <E> {
+    List<E> loadDataFromFile();
 }

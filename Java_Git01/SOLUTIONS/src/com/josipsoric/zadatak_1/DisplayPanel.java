@@ -39,10 +39,10 @@ public class DisplayPanel extends JPanel {
         textArea.setFont(font);
         textArea.append(dataText);
     }
+
     public void deleteTextOnPanel(){
         textArea.setText("");
     }
-
 
     public void setTextFont(Font font) {
         this.font=font;

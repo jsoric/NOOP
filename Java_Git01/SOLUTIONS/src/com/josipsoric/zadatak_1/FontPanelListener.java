@@ -6,4 +6,5 @@ public interface FontPanelListener extends EventListener {
 
     void fontSettings(String fontName, int fontSize);
     void resetSettings(String call);
+
 }

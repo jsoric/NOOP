@@ -9,7 +9,12 @@ public class TestGens_1 {
     private static CompareTwo compareTwo;
 
     public static void main(String[] args) {
-        ArrayList<User> users = popListUsers(10);
+        ArrayList<User> users = popListUsers(5);
+
+        if (users.size() > 100) {
+            throw new IllegalArgumentException("Prevelika veličina unosa, dozvoljeno najviše 100.");
+        }
+
         System.out.println("Original list:");
         System.out.println(users);
 
@@ -21,14 +26,13 @@ public class TestGens_1 {
 
         for (int[] pair : combinations) {
             compareTwo = new CompareTwo<>(pair[0], pair[1]);
-            System.out.println("\n-------------------------------------------------------\n");
+            System.out.println("\n----------------------------------------------------------\n");
             User user1 = findUserById(users, pair[0]);
             User user2 = findUserById(users, pair[1]);
             System.out.println("Pair: " + user1 + " and " + user2);
             compareTwo.compareAndPerform();
         }
     }
-
 
     private static ArrayList<User> popListUsers(int n){
         ArrayList<User> userList = new ArrayList<>();
