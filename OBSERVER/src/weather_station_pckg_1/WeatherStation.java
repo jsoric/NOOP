@@ -15,39 +15,26 @@ public class WeatherStation implements ObservableWS{
         this.temperature = t;
         this.pressure = p;
         this.observers = new ArrayList<>();
-
     }
 
     @Override
     public void add(Observer observer) {
         if(observers.contains(observer)){
             System.out.println("This one is already in observable list!");
-        } else {
+        }else{
             observers.add(observer);
-                System.out.println("New observer added to a list: " + observer);
+            System.out.println("New observer added to a list: " + observer);
         }
     }
 
     @Override
     public void remove(Observer observer) {
-        if(observers.contains(observer)){
+        if (observers.contains(observer)) {
             observers.remove(observer);
-            System.out.println("This observer successfully removed from the list!");
-        } else {
-            System.out.println("Can not remove this one - not in the list!");
+            System.out.println("This observer is successfully removed from the list!");
+        }else{
+            System.out.println("Can't remove the observer - not in the list!");
         }
-    }
-
-    @Override
-    public void notifyAllObserver() {
-        if(observers.isEmpty()){
-            System.out.println("No one to notify");
-        } else{
-            for(Observer observer : observers){
-                observer.update();
-            }
-        }
-
     }
 
     public double getTemperature() {
@@ -62,12 +49,21 @@ public class WeatherStation implements ObservableWS{
         return humidity;
     }
 
+    @Override
+    public void notifyAllObservers() {
+        if (observers.isEmpty()) {
+            System.out.println("Nothing to notify!");
+        }
+        for(Observer observer : observers){
+            observer.update();
+        }
+    }
+
     public void setStateWeatherData(double p, double t, double h){
         this.humidity = h;
-        this.temperature = t;
         this.pressure = p;
+        this.temperature = t;
         System.out.println("Weather data changed...");
-        notifyAllObserver();
-
+        notifyAllObservers();
     }
 }

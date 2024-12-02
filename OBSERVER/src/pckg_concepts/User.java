@@ -1,6 +1,6 @@
 package pckg_concepts;
 
-public class User implements ServiceSignIn {
+public class User implements ServiceSignIn{
 
     private int id;
     private static int cntID = 100;
@@ -8,7 +8,8 @@ public class User implements ServiceSignIn {
 
     public User(String userName){
         this.userName = userName;
-        this.id = id;    }
+        this.id = cntID++;
+    }
 
     @Override
     public String toString() {
@@ -18,15 +19,14 @@ public class User implements ServiceSignIn {
                 '}';
     }
 
+    public void performSomeAction(){
+        System.out.println(this + " performing some action!");
+    }
+
     @Override
     public void provideSignInInfo(String userName, String passwd) {
         System.out.println(userName);
         System.out.println(passwd);
     }
 
-    public void performSomeAction(){
-        System.out.println("Some Action.");
-    }
 }
-
-
