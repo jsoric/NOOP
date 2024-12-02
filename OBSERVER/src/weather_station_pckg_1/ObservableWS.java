@@ -4,5 +4,5 @@ public interface ObservableWS {
 
     void add(Observer observer);
     void remove(Observer observer);
-    void notifyAllObserver();
+    void notifyAllObservers();
 }

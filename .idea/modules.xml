@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ADAPTER/ADAPTER.iml" filepath="$PROJECT_DIR$/ADAPTER/ADAPTER.iml" />
+      <module fileurl="file://$PROJECT_DIR$/COMMAND/COMMAND.iml" filepath="$PROJECT_DIR$/COMMAND/COMMAND.iml" />
       <module fileurl="file://$PROJECT_DIR$/JAVA_GENERICS/JAVA_GENERICS.iml" filepath="$PROJECT_DIR$/JAVA_GENERICS/JAVA_GENERICS.iml" />
       <module fileurl="file://$PROJECT_DIR$/Java_Git01/Java_Git01.iml" filepath="$PROJECT_DIR$/Java_Git01/Java_Git01.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/NOOP.iml" filepath="$PROJECT_DIR$/.idea/NOOP.iml" />

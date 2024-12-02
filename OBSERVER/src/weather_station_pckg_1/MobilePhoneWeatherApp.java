@@ -7,9 +7,16 @@ public class MobilePhoneWeatherApp implements Observer, Display{
     private double hum;
     private WeatherStation weatherStation;
 
-
     public void setWeatherStation(WeatherStation weatherStation){
         this.weatherStation = weatherStation;
+    }
+
+    @Override
+    public void display() {
+        System.out.println("Displaying: ");
+        System.out.println(temp + " C degree");
+        System.out.println(hum + "%");
+        System.out.println(press + "pascals" );
     }
 
     @Override
@@ -18,16 +25,7 @@ public class MobilePhoneWeatherApp implements Observer, Display{
         this.hum = weatherStation.getHumidity();
         this.temp = weatherStation.getTemperature();
         System.out.println("All is updated!!!");
-        System.out.println(Integer.toHexString(this.hashCode()) + "@" +getClass().getSimpleName());
+        System.out.println(Integer.toHexString(this.hashCode()) + "@" + getClass().getSimpleName());
         display();
-        weatherStation.notifyAllObserver();
-    }
-
-    @Override
-    public void display() {
-        System.out.println("Displaying:");
-        System.out.println(temp + "*C");
-        System.out.println(hum + "%");
-        System.out.println(press + "hPa");
     }
 }
