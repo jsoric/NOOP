@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/ADAPTER/ADAPTER.iml" filepath="$PROJECT_DIR$/ADAPTER/ADAPTER.iml" />
       <module fileurl="file://$PROJECT_DIR$/COMMAND/COMMAND.iml" filepath="$PROJECT_DIR$/COMMAND/COMMAND.iml" />
       <module fileurl="file://$PROJECT_DIR$/DECORATOR/DECORATOR.iml" filepath="$PROJECT_DIR$/DECORATOR/DECORATOR.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GIT01/GIT01.iml" filepath="$PROJECT_DIR$/GIT01/GIT01.iml" />
       <module fileurl="file://$PROJECT_DIR$/JAVA_GENERICS/JAVA_GENERICS.iml" filepath="$PROJECT_DIR$/JAVA_GENERICS/JAVA_GENERICS.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/NOOP.iml" filepath="$PROJECT_DIR$/.idea/NOOP.iml" />
       <module fileurl="file://$PROJECT_DIR$/OBSERVER/OBSERVER.iml" filepath="$PROJECT_DIR$/OBSERVER/OBSERVER.iml" />
